@@ -94,6 +94,9 @@ Clone the repository:
 ```bash
 git clone https://github.com/your-username/Handwritten-Digit-Recognition.git
 ```
+## 🚀 Live Demo
+
+👉 https://handwritten-digit-recognition-1608200618092.streamlit.app/
 
 Move into the project folder:
 
