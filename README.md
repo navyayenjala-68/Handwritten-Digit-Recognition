@@ -1,69 +1,164 @@
-# ✍️ Handwritten Digit Recognition using CNN
+# ✍️ Handwritten Digit Recognition
 
-A web-based Handwritten Digit Recognition system built using **TensorFlow**, **Keras**, and **Streamlit**. The model is trained on the **MNIST dataset** and can recognize handwritten digits (0–9) from either a drawing canvas or an uploaded image.
+An interactive **Deep Learning** web application that recognizes handwritten digits (0–9) using a **Convolutional Neural Network (CNN)** trained on the **MNIST dataset**.
 
----
-
-## 📌 Project Overview
-
-This project uses a **Convolutional Neural Network (CNN)** to classify handwritten digits. Users can either:
-
-- ✍️ Draw a digit on an interactive canvas
-- 📤 Upload an image of a handwritten digit
-
-The application predicts the digit, displays the confidence score, and shows the prediction probabilities for all digits (0–9).
+The application allows users to either draw a digit on an interactive canvas or upload an image for prediction. Along with the predicted digit, the system displays the model's confidence score and the probability distribution for all digit classes.
 
 ---
 
-## ✨ Features
+# 📌 Project Overview
+This project uses a Convolutional Neural Network (CNN) to classify handwritten digits.
 
-- 🎨 Draw handwritten digits on a canvas
+The project combines computer vision, image preprocessing, and a CNN model into a user-friendly Streamlit application. It provides real-time predictions while helping users understand the model's confidence through probability visualization.
+
+This project was developed as part of a Machine Learning internship to demonstrate practical Deep Learning deployment using TensorFlow and Streamlit.
+
+---
+
+# ✨ Features
+
+- ✍️ Draw handwritten digits directly on an interactive canvas
 - 📤 Upload handwritten digit images
 - 🤖 CNN-based digit recognition
-- 📊 Prediction confidence score
-- 📈 Probability chart for all digit classes
-- 📌 User-friendly Streamlit interface
+- 📊 Real-time prediction
+- 📈 Prediction confidence score
+- 📉 Probability distribution for all digits (0–9)
+- 🎨 Clean and responsive Streamlit interface
+- ⚡ Fast prediction using a trained CNN model
 
 ---
 
-## 🛠️ Tech Stack
+# 🖼️ Application Preview
 
-- Python
-- TensorFlow
-- Keras
-- Streamlit
-- OpenCV
-- NumPy
-- Pandas
-- Pillow
+## Home Screen
+
+<img width="1522" height="723" alt="Home png" src="https://github.com/user-attachments/assets/f93e70a1-fcc3-43d5-a383-0118a9af5702" />
+
+
 
 ---
 
-## 🧠 Model Architecture
+## Draw Digit Prediction
 
-The CNN model consists of:
 
-- Conv2D (32 filters)
-- MaxPooling2D
-- Conv2D (64 filters)
-- MaxPooling2D
-- Flatten
-- Dense (128 neurons)
-- Dropout
-- Dense (10 output classes with Softmax)
+<img width="1512" height="731" alt="draw_prediction png" src="https://github.com/user-attachments/assets/7fb3e03e-d3d0-42aa-87e8-664c3e050b67" />
+
 
 ---
 
-## 📊 Model Performance
+## Upload Image Prediction
+
+<img width="1502" height="682" alt="upload_prediction png" src="https://github.com/user-attachments/assets/e7e4c201-27d6-400d-842e-b362707eda49" />
+
+
+
+---
+
+# 🛠️ Tech Stack
+
+| Category | Technology |
+|-----------|------------|
+| Language | Python |
+| Deep Learning | TensorFlow, Keras |
+| Computer Vision | OpenCV |
+| Web Framework | Streamlit |
+| Image Processing | Pillow |
+| Numerical Computing | NumPy |
+| Visualization | Matplotlib |
+| Dataset | MNIST |
+
+---
+
+# 🧠 Model Architecture
+
+The Convolutional Neural Network consists of the following layers:
+
+```
+Input Image (28×28×1)
+
+        │
+
+Conv2D (32 Filters)
+
+        │
+
+MaxPooling2D
+
+        │
+
+Conv2D (64 Filters)
+
+        │
+
+MaxPooling2D
+
+        │
+
+Flatten
+
+        │
+
+Dense (128)
+
+        │
+
+Dropout
+
+        │
+
+Dense (10)
+
+        │
+
+Softmax Output
+```
+
+---
+
+# 📊 Model Performance
 
 | Metric | Value |
 |--------|------:|
+| Dataset | MNIST |
 | Test Accuracy | **99.24%** |
 | Test Loss | **0.0294** |
+| Classes | 10 (Digits 0–9) |
 
 ---
 
-## 📂 Project Structure
+# 🔄 Application Workflow
+
+```
+User Input
+      │
+      ▼
+Draw Digit / Upload Image
+      │
+      ▼
+Image Preprocessing
+      │
+      ▼
+Resize to 28 × 28
+      │
+      ▼
+Normalize Pixel Values
+      │
+      ▼
+CNN Prediction
+      │
+      ▼
+Predicted Digit
+      │
+      ▼
+Confidence Score
+      │
+      ▼
+Probability Chart
+```
+
+---
+
+# 📂 Project Structure
 
 ```text
 Handwritten-Digit-Recognition/
@@ -81,63 +176,113 @@ Handwritten-Digit-Recognition/
 │   └── Handwritten_Digit_Recognition.ipynb
 │
 ├── screenshots/
+│   ├── home.png
+│   ├── draw_prediction.png
+│   └── upload_prediction.png
 │
 └── images/
 ```
 
 ---
 
-## 🚀 Installation
+# 🚀 Installation
 
-Clone the repository:
+## Clone the repository
 
 ```bash
 git clone https://github.com/your-username/Handwritten-Digit-Recognition.git
 ```
-## 🚀 Live Demo
 
-👉 https://handwritten-digit-recognition-1608200618092.streamlit.app/
-
-Move into the project folder:
+## Navigate to the project
 
 ```bash
 cd Handwritten-Digit-Recognition
 ```
 
-Install the required libraries:
+## Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Run the Streamlit application:
+## Run the application
 
 ```bash
 streamlit run app.py
 ```
 
-## 💡 Note
+The application will open in your browser at:
+
+```
+http://localhost:8501
+```
+## 🌐 Live Demo
+
+https://handwritten-digit-recognition-1608200618092.streamlit.app/
+
+---
+
+# 💡 Usage
+
+### Draw Mode
+
+- Draw **one handwritten digit (0–9)**.
+- Keep the digit centered.
+- Avoid multiple digits.
+- Click **Predict Drawing**.
+
+### Upload Mode
+
+- Upload a clear handwritten digit image.
+- The application automatically preprocesses the image.
+- Click **Predict Uploaded Image**.
+
+The application will display:
+
+- Predicted digit
+- Confidence percentage
+- Probability distribution across all digit classes
+
+---
+
+# 📌 Project Highlights
+
+- CNN trained on the MNIST handwritten digit dataset
+- Supports two prediction methods
+- Real-time inference
+- Interactive probability visualization
+- Beginner-friendly Deep Learning project
+- Fully deployable using Streamlit
+
+---
+
+# 🔮 Future Improvements
+
+- Multi-digit recognition
+- Real-time webcam digit recognition
+- Explainable AI using Grad-CAM
+- Improved preprocessing for noisy images
+- Cloud deployment using Streamlit Community Cloud
+- Mobile-friendly responsive interface
+
+---
+
+# ⚠️ Note
 
 For the best prediction accuracy:
 
-- Draw **one digit (0–9)** at a time.
+- Draw only one digit.
 - Keep the digit centered.
-- Avoid multiple digits in a single image.
-- Upload clear handwritten digit images with minimal background noise.
+- Use thick, clear strokes.
+- Upload clean handwritten digit images.
+- Avoid noisy backgrounds and multiple digits.
 
 ---
 
-## 🔮 Future Improvements
-
-- Support recognition of multiple handwritten digits.
-- Improve preprocessing for uploaded images.
-- Deploy the application on Streamlit Community Cloud.
-- Add support for custom datasets.
-
----
-
-## 👨‍💻 Author
+# 👨‍💻 Author
 
 **Navya**
 
-Built with ❤️ using TensorFlow and Streamlit.
+Machine Learning • Deep Learning • Computer Vision
+
+Built with ❤️ using **TensorFlow, Keras, OpenCV, and Streamlit**.
